@@ -1,0 +1,95 @@
+definitions:
+  main.Todo:
+    properties:
+      completed:
+        type: boolean
+      id:
+        type: string
+      item:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: A ToDo Application API for Hacktiv8 Project
+  title: Todo
+paths:
+  /todos:
+    get:
+      operationId: get-all-todos
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Todo'
+            type: array
+      summary: Get all todos
+    post:
+      operationId: add-todo
+      parameters:
+      - description: Add todo
+        in: body
+        name: todo
+        required: true
+        schema:
+          $ref: '#/definitions/main.Todo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Todo'
+      summary: Add a new todo
+  /todos/{id}:
+    delete:
+      operationId: delete-todo-by-id
+      parameters:
+      - description: todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Todo'
+      summary: delete a todo item by ID
+    get:
+      operationId: get-todo-by-id
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Todo'
+      summary: Get a todo by ID
+    patch:
+      operationId: update-todo-by-id
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Todo'
+      summary: Update a todo by ID
+swagger: "2.0"

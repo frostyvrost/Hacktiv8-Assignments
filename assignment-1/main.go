@@ -48,7 +48,7 @@ func main() {
 	var arg = os.Args
 
 	if len(arg) < 2 {
-		fmt.Println("No arguments provided.")
+		fmt.Println("Masukkan nama!")
 		return
 	}
 
